@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 import {
   AnimatePresence,
   motion,
@@ -38,6 +39,8 @@ type Service = {
   description: string;
   icon: LucideIcon;
   image: string;
+  imageAlt: string;
+  imagePosition?: string;
 };
 
 type Project = {
@@ -45,6 +48,8 @@ type Project = {
   category: string;
   description: string;
   image: string;
+  imageAlt: string;
+  imagePosition?: string;
   location: string;
 };
 
@@ -69,6 +74,8 @@ const services: Service[] = [
       "Conception et exécution d'infrastructures routières, plateformes, ouvrages de génie civil et aménagements structurants.",
     icon: LandPlot,
     image: "/images/roads.jpg",
+    imageAlt: "Équipe de chantier sur un projet de travaux publics",
+    imagePosition: "center 52%",
   },
   {
     title: "Bâtiment",
@@ -76,20 +83,26 @@ const services: Service[] = [
       "Construction de bâtiments administratifs, résidentiels, logistiques et industriels avec des standards élevés de qualité.",
     icon: Building2,
     image: "/images/building.jpg",
+    imageAlt: "Bâtiment moderne illustrant une activité de construction",
   },
   {
     title: "Hydraulique",
     description:
       "Réseaux d'adduction, forage, distribution et ouvrages hydrauliques pour les besoins urbains, ruraux et industriels.",
     icon: Droplets,
-    image: "/images/building.jpg",
+    image: "/images/hero.jpg",
+    imageAlt: "Travaux de bétonnage avec conduite visible pour un ouvrage hydraulique",
+    imagePosition: "center 58%",
   },
   {
     title: "Assainissement",
     description:
       "Canalisations, drainage, collecte et traitement des eaux usées pour des environnements durables et conformes.",
     icon: Wrench,
-    image: "/images/roads.jpg",
+    image:
+      "https://images.pexels.com/photos/12387207/pexels-photo-12387207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    imageAlt: "Tuyaux en béton alignés sur un chantier d'assainissement",
+    imagePosition: "center 62%",
   },
   {
     title: "Industrie",
@@ -97,6 +110,7 @@ const services: Service[] = [
       "Travaux industriels, maintenance, montage d'équipements et accompagnement technique pour les sites exigeants.",
     icon: Factory,
     image: "/images/industry.jpg",
+    imageAlt: "Intérieur d'un site industriel de grande dimension",
   },
   {
     title: "Import / Export",
@@ -104,13 +118,17 @@ const services: Service[] = [
       "Approvisionnement, fourniture d'équipements, logistique et importation de matériaux liés aux activités de chantier.",
     icon: Import,
     image: "/images/logistics.jpg",
+    imageAlt: "Allée logistique avec palettes et fournitures techniques",
   },
   {
     title: "Location d'engins",
     description:
       "Mise à disposition d'une flotte d'engins de chantier performants pour vos travaux de terrassement et de construction.",
     icon: Truck,
-    image: "/images/industry.jpg",
+    image:
+      "https://images.pexels.com/photos/15370211/pexels-photo-15370211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    imageAlt: "Excavatrice lourde en activité sur un chantier de terrassement",
+    imagePosition: "center 55%",
   },
 ];
 
@@ -121,6 +139,8 @@ const projects: Project[] = [
     description:
       "Réalisation d'un tronçon structurant avec terrassement, revêtement, ouvrages de franchissement et signalisation.",
     image: "/images/roads.jpg",
+    imageAlt: "Travaux routiers avec équipes et équipements de chantier",
+    imagePosition: "center 52%",
     location: "Région d'Agadez",
   },
   {
@@ -128,7 +148,9 @@ const projects: Project[] = [
     category: "Hydraulique",
     description:
       "Extension de réseau, pose de conduites et mise en place de solutions de distribution d'eau pour plusieurs zones.",
-    image: "/images/building.jpg",
+    image:
+      "https://images.pexels.com/photos/20772237/pexels-photo-20772237.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    imageAlt: "Conduite d'eau technique dans un tunnel hydraulique",
     location: "Nord du Niger",
   },
   {
@@ -137,6 +159,7 @@ const projects: Project[] = [
     description:
       "Conception-construction d'un ensemble fonctionnel intégrant bureaux, locaux techniques et finitions premium.",
     image: "/images/building.jpg",
+    imageAlt: "Façade d'un bâtiment moderne à usage administratif",
     location: "Agadez",
   },
   {
@@ -144,7 +167,9 @@ const projects: Project[] = [
     category: "Assainissement",
     description:
       "Création de réseaux d'évacuation, ouvrages de drainage et amélioration de la résilience urbaine face aux eaux pluviales.",
-    image: "/images/roads.jpg",
+    image: "/images/hero.jpg",
+    imageAlt: "Travaux de mise en oeuvre d'un ouvrage de canalisation",
+    imagePosition: "center 58%",
     location: "Centre-ville",
   },
   {
@@ -153,6 +178,7 @@ const projects: Project[] = [
     description:
       "Interventions de maintenance et d'optimisation sur équipements industriels avec exigences fortes de disponibilité.",
     image: "/images/industry.jpg",
+    imageAlt: "Grand hall industriel pour activités de maintenance lourde",
     location: "Site industriel",
   },
   {
@@ -161,6 +187,7 @@ const projects: Project[] = [
     description:
       "Pilotage logistique, sourcing international et livraison de matériels techniques adaptés aux chantiers.",
     image: "/images/logistics.jpg",
+    imageAlt: "Entrepôt logistique de stockage d'équipements spécialisés",
     location: "Niger",
   },
   {
@@ -168,7 +195,10 @@ const projects: Project[] = [
     category: "Services",
     description:
       "Location de pelleteuses, bulldozers et camions bennes pour des projets de construction à Agadez.",
-    image: "/images/industry.jpg",
+    image:
+      "https://images.pexels.com/photos/15370211/pexels-photo-15370211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    imageAlt: "Engin de chantier en location sur une zone de terrassement",
+    imagePosition: "center 55%",
     location: "Agadez",
   },
 ];
@@ -407,6 +437,14 @@ export default function Home() {
     window.localStorage.setItem("esma-theme", darkMode ? "dark" : "light");
   }, [darkMode]);
 
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSubmitted(true);
@@ -482,7 +520,13 @@ export default function Home() {
         >
           <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
             <a href="#accueil" className="flex items-center gap-4">
-              <img src="/logo.png" alt="Logo ENTREPRISE ESMA" className="h-12 w-auto object-contain rounded-lg" />
+              <Image
+                src="/logo.png"
+                alt="Logo ENTREPRISE ESMA"
+                width={96}
+                height={48}
+                className="h-12 w-auto rounded-lg object-contain"
+              />
               <div>
                 <div className="text-sm font-semibold uppercase tracking-[0.3em]">
                   ENTREPRISE ESMA
@@ -533,6 +577,7 @@ export default function Home() {
               <button
                 type="button"
                 aria-label="Ouvrir le menu"
+                aria-expanded={mobileMenuOpen}
                 onClick={() => setMobileMenuOpen(true)}
                 className={`rounded-full border p-3 lg:hidden ${
                   darkMode
@@ -544,18 +589,44 @@ export default function Home() {
               </button>
             </div>
           </div>
+          <div
+            className={`border-t px-4 pb-3 lg:hidden ${
+              darkMode ? "border-white/10" : "border-slate-200"
+            }`}
+          >
+            <nav
+              aria-label="Navigation rapide mobile"
+              className="flex gap-3 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {navigation.map((item) => (
+                <a
+                  key={`mobile-quick-${item.href}`}
+                  href={item.href}
+                  className={`shrink-0 rounded-full border px-4 py-2 text-sm font-medium transition ${
+                    darkMode
+                      ? "border-white/10 bg-white/5 text-slate-100 hover:border-orange-400/40 hover:text-orange-300"
+                      : "border-slate-200 bg-white text-slate-700 hover:border-orange-400/40 hover:text-orange-500"
+                  }`}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+          </div>
         </header>
 
         <AnimatePresence>
           {mobileMenuOpen ? (
             <motion.div
               className="fixed inset-0 z-[60] bg-slate-950/90 backdrop-blur-md lg:hidden"
+              onClick={() => setMobileMenuOpen(false)}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
               <motion.div
                 className="ml-auto flex h-full w-[85%] max-w-sm flex-col bg-slate-900 p-6"
+                onClick={(event) => event.stopPropagation()}
                 initial={{ x: "100%" }}
                 animate={{ x: 0 }}
                 exit={{ x: "100%" }}
@@ -563,7 +634,13 @@ export default function Home() {
               >
                 <div className="mb-10 flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <img src="/logo.png" alt="Logo" className="h-8 w-auto rounded" />
+                    <Image
+                      src="/logo.png"
+                      alt="Logo"
+                      width={64}
+                      height={32}
+                      className="h-8 w-auto rounded object-contain"
+                    />
                     <span className="text-xs font-bold uppercase tracking-[0.2em] text-white">
                       ESMA
                     </span>
@@ -628,7 +705,7 @@ export default function Home() {
         <main>
           <section
             id="accueil"
-            className="relative overflow-hidden border-b border-white/10"
+            className="relative overflow-hidden border-b border-white/10 scroll-mt-40"
           >
             <div
               className="absolute inset-0 bg-cover bg-center"
@@ -639,7 +716,7 @@ export default function Home() {
             />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(251,146,60,0.18),_transparent_28%),radial-gradient(circle_at_bottom_left,_rgba(59,130,246,0.18),_transparent_22%)]" />
 
-            <div className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-16 px-6 pb-24 pt-32 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
+            <div className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-16 px-6 pb-24 pt-44 sm:pt-40 lg:grid-cols-[1.15fr_0.85fr] lg:px-8 lg:pt-32">
               <motion.div
                 initial={shouldReduceMotion ? false : "hidden"}
                 whileInView="visible"
@@ -732,7 +809,7 @@ export default function Home() {
 
           <motion.section
             id="entreprise"
-            className={`py-16 lg:py-24 ${
+            className={`scroll-mt-36 py-16 lg:py-24 ${
               darkMode ? "bg-slate-950" : "bg-slate-50"
             }`}
             initial={shouldReduceMotion ? false : "hidden"}
@@ -834,7 +911,7 @@ export default function Home() {
 
           <section
             id="services"
-            className={darkMode ? "bg-slate-900 py-16 lg:py-24" : "bg-white py-16 lg:py-24"}
+            className={darkMode ? "scroll-mt-36 bg-slate-900 py-16 lg:py-24" : "scroll-mt-36 bg-white py-16 lg:py-24"}
           >
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <SectionHeading
@@ -863,12 +940,22 @@ export default function Home() {
                           : "border-slate-200 bg-slate-50"
                       }`}
                     >
-                      <div
-                        className="h-56 bg-cover bg-center transition duration-500 group-hover:scale-105"
-                        style={{
-                          backgroundImage: `linear-gradient(180deg, rgba(15,23,42,0.08), rgba(15,23,42,0.74)), url(${service.image})`,
-                        }}
-                      />
+                      <div className="relative h-56 overflow-hidden">
+                        <Image
+                          src={service.image}
+                          alt={service.imageAlt}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                          className="object-cover transition duration-700 group-hover:scale-105"
+                          style={{
+                            objectPosition: service.imagePosition ?? "center",
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/5 via-slate-950/25 to-slate-950/80" />
+                        <div className="absolute left-5 top-5 rounded-full border border-white/15 bg-slate-950/65 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-sm">
+                          {service.title}
+                        </div>
+                      </div>
                       <div className="p-8">
                         <div className="flex items-center gap-4">
                           <div className="rounded-2xl bg-orange-400/15 p-3 text-orange-300">
@@ -892,8 +979,8 @@ export default function Home() {
           </section>
 
           <section
-            id="entreprise"
-            className={darkMode ? "bg-slate-950 py-16 lg:py-24" : "bg-slate-50 py-16 lg:py-24"}
+            id="projets"
+            className={darkMode ? "scroll-mt-36 bg-slate-950 py-16 lg:py-24" : "scroll-mt-36 bg-slate-50 py-16 lg:py-24"}
           >
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <SectionHeading
@@ -932,18 +1019,25 @@ export default function Home() {
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.98 }}
                         transition={{ duration: 0.28 }}
-                        className={`overflow-hidden rounded-[2rem] border ${
+                        className={`group overflow-hidden rounded-[2rem] border ${
                           darkMode
                             ? "border-white/10 bg-white/5"
                             : "border-slate-200 bg-white"
                         }`}
                       >
-                        <div
-                          className="h-56 bg-cover bg-center"
-                          style={{
-                            backgroundImage: `linear-gradient(180deg, rgba(15,23,42,0.10), rgba(15,23,42,0.72)), url(${project.image})`,
-                          }}
-                        />
+                        <div className="relative h-56 overflow-hidden">
+                          <Image
+                            src={project.image}
+                            alt={project.imageAlt}
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 40vw"
+                            className="object-cover transition duration-700 group-hover:scale-105"
+                            style={{
+                              objectPosition: project.imagePosition ?? "center",
+                            }}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/10 via-slate-950/20 to-slate-950/75" />
+                        </div>
                         <div className="p-7">
                           <div className="flex items-center justify-between gap-4">
                             <span className="rounded-full bg-orange-400/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-orange-300">
@@ -1075,7 +1169,7 @@ export default function Home() {
 
           <section
             id="contact"
-            className={darkMode ? "bg-slate-900 py-16 lg:py-24" : "bg-white py-16 lg:py-24"}
+            className={darkMode ? "scroll-mt-36 bg-slate-900 py-16 lg:py-24" : "scroll-mt-36 bg-white py-16 lg:py-24"}
           >
             <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8">
               <div className="space-y-8">
@@ -1280,7 +1374,13 @@ export default function Home() {
           <div className="mx-auto grid max-w-7xl gap-8 px-6 lg:grid-cols-[1fr_0.8fr_0.8fr] lg:px-8">
             <div>
               <div className="flex items-center gap-4">
-                <img src="/logo.png" alt="Logo ENTREPRISE ESMA" className="h-12 w-auto object-contain rounded-lg" />
+                <Image
+                  src="/logo.png"
+                  alt="Logo ENTREPRISE ESMA"
+                  width={96}
+                  height={48}
+                  className="h-12 w-auto rounded-lg object-contain"
+                />
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.3em]">
                     ENTREPRISE ESMA
