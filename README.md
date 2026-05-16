@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ENTREPRISE ESMA - Site Officiel
 
-## Getting Started
+Ce projet est le site web officiel de l'**ENTREPRISE ESMA**, une entreprise spécialisée dans les Travaux Publics, le Bâtiment et l'Hydraulique au Niger.
 
-First, run the development server:
+## 🏗️ Domaines d'expertise
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Travaux Publics** : Infrastructures routières et génie civil.
+- **Bâtiment** : Construction résidentielle et industrielle.
+- **Hydraulique** : Réseaux d'adduction d'eau et forages.
+- **Assainissement** : Réseaux d'évacuation et drainage urbain.
+- **Industrie** : Maintenance et montage d'équipements.
+- **Import / Export** : Logistique et fourniture d'équipements spécialisés.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Technologies utilisées
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework** : [Next.js 15+](https://nextjs.org/) (App Router)
+- **Styling** : [Tailwind CSS](https://tailwindcss.com/)
+- **Animations** : [Framer Motion](https://www.framer.com/motion/)
+- **Icônes** : [Lucide React](https://lucide.dev/)
+- **Langage** : [TypeScript](https://www.typescriptlang.org/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Installation et Développement
 
-## Learn More
+1. Clonez le dépôt :
+   ```bash
+   git clone https://github.com/SidiHassane/ESMA.git
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Installez les dépendances :
+   ```bash
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Lancez le serveur de développement :
+   ```bash
+   npm run dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur.
 
-## Deploy on Vercel
+## 📞 Contact
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Email** : o.alkassoum7456@gmail.com
+- **WhatsApp** : +227 97 56 46 16
+- **Adresse** : BP 128 / AZ - Agadez, Niger
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+© 2026 ENTREPRISE ESMA. Tous droits réservés.
