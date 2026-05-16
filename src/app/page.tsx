@@ -18,6 +18,7 @@ import {
   Droplets,
   Factory,
   HardHat,
+  Truck,
   Import,
   LandPlot,
   MapPin,
@@ -81,7 +82,7 @@ const services: Service[] = [
     description:
       "Réseaux d'adduction, forage, distribution et ouvrages hydrauliques pour les besoins urbains, ruraux et industriels.",
     icon: Droplets,
-    image: "/images/hydraulics.jpg",
+    image: "/images/building.jpg",
   },
   {
     title: "Assainissement",
@@ -104,6 +105,13 @@ const services: Service[] = [
     icon: Import,
     image: "/images/logistics.jpg",
   },
+  {
+    title: "Location d'engins",
+    description:
+      "Mise à disposition d'une flotte d'engins de chantier performants pour vos travaux de terrassement et de construction.",
+    icon: Truck,
+    image: "/images/industry.jpg",
+  },
 ];
 
 const projects: Project[] = [
@@ -120,7 +128,7 @@ const projects: Project[] = [
     category: "Hydraulique",
     description:
       "Extension de réseau, pose de conduites et mise en place de solutions de distribution d'eau pour plusieurs zones.",
-    image: "/images/hydraulics.jpg",
+    image: "/images/building.jpg",
     location: "Nord du Niger",
   },
   {
@@ -154,6 +162,14 @@ const projects: Project[] = [
       "Pilotage logistique, sourcing international et livraison de matériels techniques adaptés aux chantiers.",
     image: "/images/logistics.jpg",
     location: "Niger",
+  },
+  {
+    title: "Location de matériel de chantier",
+    category: "Services",
+    description:
+      "Location de pelleteuses, bulldozers et camions bennes pour des projets de construction à Agadez.",
+    image: "/images/industry.jpg",
+    location: "Agadez",
   },
 ];
 
