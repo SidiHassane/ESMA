@@ -562,48 +562,61 @@ export default function Home() {
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
                 <div className="mb-10 flex items-center justify-between">
-                  <span className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-300">
-                    Navigation
-                  </span>
+                  <div className="flex items-center gap-3">
+                    <img src="/logo.png" alt="Logo" className="h-8 w-auto rounded" />
+                    <span className="text-xs font-bold uppercase tracking-[0.2em] text-white">
+                      ESMA
+                    </span>
+                  </div>
                   <button
                     type="button"
                     aria-label="Fermer le menu"
                     onClick={() => setMobileMenuOpen(false)}
                     className="rounded-full border border-white/10 p-3 text-white"
                   >
-                    <X size={18} />
+                    <X size={20} />
                   </button>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {navigation.map((item) => (
                     <a
                       key={item.href}
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white transition hover:border-orange-400/40 hover:bg-orange-400/10"
+                      className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-6 py-5 text-lg font-medium text-white transition active:scale-95 hover:border-orange-400/40 hover:bg-orange-400/10"
                     >
                       <span>{item.label}</span>
-                      <ChevronRight size={18} />
+                      <ChevronRight size={20} className="text-orange-400" />
                     </a>
                   ))}
                 </div>
 
-                <div className="mt-auto grid gap-4 pt-8">
-                  <button
-                    type="button"
-                    onClick={() => setDarkMode((value) => !value)}
-                    className="flex items-center justify-center gap-2 rounded-full border border-white/10 px-5 py-3 text-white"
-                  >
-                    {darkMode ? <Sun size={18} /> : <Moon size={18} />}
-                    {darkMode ? "Mode clair" : "Mode sombre"}
-                  </button>
+                <div className="mt-auto grid gap-4 pt-10">
+                  <div className="flex gap-4">
+                    <button
+                      type="button"
+                      onClick={() => setDarkMode((value) => !value)}
+                      className="flex flex-1 items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 py-4 text-white"
+                    >
+                      {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+                      <span className="text-sm font-medium">{darkMode ? "Clair" : "Sombre"}</span>
+                    </button>
+                    <a
+                      href="tel:+22797564616"
+                      className="flex flex-1 items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 py-4 text-white"
+                    >
+                      <Phone size={20} />
+                      <span className="text-sm font-medium">Appeler</span>
+                    </a>
+                  </div>
                   <a
                     href="https://wa.me/22797564616"
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-full bg-orange-400 px-5 py-3 text-center font-semibold text-slate-950"
+                    className="flex items-center justify-center gap-3 rounded-2xl bg-orange-400 py-5 text-center font-bold text-slate-950 shadow-lg shadow-orange-400/20 active:scale-[0.98]"
                   >
+                    <ArrowRight size={20} />
                     Contacter sur WhatsApp
                   </a>
                 </div>
@@ -626,7 +639,7 @@ export default function Home() {
             />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(251,146,60,0.18),_transparent_28%),radial-gradient(circle_at_bottom_left,_rgba(59,130,246,0.18),_transparent_22%)]" />
 
-            <div className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-16 px-6 pb-20 pt-32 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
+            <div className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-16 px-6 pb-24 pt-32 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
               <motion.div
                 initial={shouldReduceMotion ? false : "hidden"}
                 whileInView="visible"
@@ -638,7 +651,7 @@ export default function Home() {
                   <span className="h-2 w-2 rounded-full bg-orange-400" />
                   Depuis 2001 a Agadez
                 </div>
-                <h1 className="mt-8 text-5xl font-semibold leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
+                <h1 className="mt-8 text-4xl font-semibold leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
                   Plus de 20 ans d&apos;expertise au service des infrastructures
                   et du developpement.
                 </h1>
@@ -719,7 +732,7 @@ export default function Home() {
 
           <motion.section
             id="entreprise"
-            className={`py-24 ${
+            className={`py-16 lg:py-24 ${
               darkMode ? "bg-slate-950" : "bg-slate-50"
             }`}
             initial={shouldReduceMotion ? false : "hidden"}
@@ -821,7 +834,7 @@ export default function Home() {
 
           <section
             id="services"
-            className={darkMode ? "bg-slate-900 py-24" : "bg-white py-24"}
+            className={darkMode ? "bg-slate-900 py-16 lg:py-24" : "bg-white py-16 lg:py-24"}
           >
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <SectionHeading
@@ -879,8 +892,8 @@ export default function Home() {
           </section>
 
           <section
-            id="projets"
-            className={darkMode ? "bg-slate-950 py-24" : "bg-slate-50 py-24"}
+            id="entreprise"
+            className={darkMode ? "bg-slate-950 py-16 lg:py-24" : "bg-slate-50 py-16 lg:py-24"}
           >
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <SectionHeading
@@ -969,7 +982,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className={darkMode ? "bg-slate-900 py-24" : "bg-white py-24"}>
+          <section className={darkMode ? "bg-slate-900 py-16 lg:py-24" : "bg-white py-16 lg:py-24"}>
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <SectionHeading
                 eyebrow="Pourquoi nous choisir"
@@ -1016,7 +1029,7 @@ export default function Home() {
           </section>
 
           <section
-            className={darkMode ? "bg-slate-950 py-24" : "bg-slate-50 py-24"}
+            className={darkMode ? "bg-slate-950 py-16 lg:py-24" : "bg-slate-50 py-16 lg:py-24"}
           >
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <SectionHeading
@@ -1062,7 +1075,7 @@ export default function Home() {
 
           <section
             id="contact"
-            className={darkMode ? "bg-slate-900 py-24" : "bg-white py-24"}
+            className={darkMode ? "bg-slate-900 py-16 lg:py-24" : "bg-white py-16 lg:py-24"}
           >
             <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8">
               <div className="space-y-8">
@@ -1172,7 +1185,7 @@ export default function Home() {
                         required
                         type="text"
                         placeholder="Nom complet"
-                        className={`rounded-2xl border px-4 py-3 outline-none transition ${
+                        className={`rounded-2xl border px-4 py-4 text-base outline-none transition ${
                           darkMode
                             ? "border-white/10 bg-white/5 placeholder:text-slate-500 focus:border-orange-400/50"
                             : "border-slate-200 bg-white placeholder:text-slate-400 focus:border-orange-400/50"
@@ -1182,7 +1195,7 @@ export default function Home() {
                         required
                         type="text"
                         placeholder="Entreprise"
-                        className={`rounded-2xl border px-4 py-3 outline-none transition ${
+                        className={`rounded-2xl border px-4 py-4 text-base outline-none transition ${
                           darkMode
                             ? "border-white/10 bg-white/5 placeholder:text-slate-500 focus:border-orange-400/50"
                             : "border-slate-200 bg-white placeholder:text-slate-400 focus:border-orange-400/50"
@@ -1194,7 +1207,7 @@ export default function Home() {
                         required
                         type="email"
                         placeholder="Email professionnel"
-                        className={`rounded-2xl border px-4 py-3 outline-none transition ${
+                        className={`rounded-2xl border px-4 py-4 text-base outline-none transition ${
                           darkMode
                             ? "border-white/10 bg-white/5 placeholder:text-slate-500 focus:border-orange-400/50"
                             : "border-slate-200 bg-white placeholder:text-slate-400 focus:border-orange-400/50"
@@ -1204,7 +1217,7 @@ export default function Home() {
                         required
                         type="tel"
                         placeholder="Téléphone"
-                        className={`rounded-2xl border px-4 py-3 outline-none transition ${
+                        className={`rounded-2xl border px-4 py-4 text-base outline-none transition ${
                           darkMode
                             ? "border-white/10 bg-white/5 placeholder:text-slate-500 focus:border-orange-400/50"
                             : "border-slate-200 bg-white placeholder:text-slate-400 focus:border-orange-400/50"
@@ -1215,7 +1228,7 @@ export default function Home() {
                       required
                       rows={5}
                       placeholder="Décrivez votre projet, sa localisation et vos attentes."
-                      className={`rounded-[1.5rem] border px-4 py-3 outline-none transition ${
+                      className={`rounded-[1.5rem] border px-4 py-4 text-base outline-none transition ${
                         darkMode
                           ? "border-white/10 bg-white/5 placeholder:text-slate-500 focus:border-orange-400/50"
                           : "border-slate-200 bg-white placeholder:text-slate-400 focus:border-orange-400/50"
@@ -1357,24 +1370,50 @@ export default function Home() {
           {showTopButton ? (
             <motion.button
               type="button"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="fixed bottom-6 right-6 z-40 rounded-full bg-orange-400 p-4 text-slate-950 shadow-lg shadow-orange-400/30"
+              className={`fixed bottom-24 right-6 z-40 rounded-full p-4 shadow-xl lg:bottom-8 ${
+                darkMode
+                  ? "bg-slate-800 text-orange-400 border border-white/10"
+                  : "bg-white text-orange-500 border border-slate-200"
+              }`}
               aria-label="Retour en haut"
             >
-              <ArrowRight size={18} className="-rotate-90" />
+              <ArrowRight size={20} className="-rotate-90" />
             </motion.button>
           ) : null}
         </AnimatePresence>
 
+        {/* Barre de contact rapide mobile */}
+        <div className="fixed inset-x-0 bottom-0 z-[50] flex items-center justify-center gap-4 border-t border-white/10 bg-slate-900/80 p-4 backdrop-blur-lg lg:hidden">
+          <a
+            href="tel:+22797564616"
+            className="flex flex-1 items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 py-4 font-bold text-white active:scale-95"
+          >
+            <Phone size={20} />
+            Appeler
+          </a>
+          <a
+            href="https://wa.me/22797564616"
+            target="_blank"
+            rel="noreferrer"
+            className="flex flex-[1.5] items-center justify-center gap-2 rounded-2xl bg-emerald-500 py-4 font-bold text-white shadow-lg shadow-emerald-500/20 active:scale-95"
+          >
+            <ArrowRight size={20} />
+            WhatsApp
+          </a>
+        </div>
+
+        {/* WhatsApp FAB Desktop */}
         <a
           href="https://wa.me/22797564616"
           target="_blank"
           rel="noreferrer"
-          className="fixed bottom-6 left-6 z-40 inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20"
+          className="fixed bottom-8 left-8 z-40 hidden items-center gap-2 rounded-full bg-emerald-500 px-6 py-4 font-bold text-white shadow-2xl shadow-emerald-500/30 transition hover:scale-105 active:scale-95 lg:flex"
         >
+          <ArrowRight size={20} />
           WhatsApp
         </a>
       </div>
