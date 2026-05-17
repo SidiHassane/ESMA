@@ -294,7 +294,7 @@ const testimonials: Testimonial[] = [
 ];
 
 const stats = [
-  { value: 20, suffix: "+", label: "années d'expérience" },
+  { value: 25, suffix: "+", label: "années d'expérience" },
   { value: 100, suffix: "+", label: "projets accompagnés" },
   { value: 50, suffix: "+", label: "partenaires et clients" },
   { value: 200, suffix: "+", label: "collaborateurs mobilisables" },
@@ -800,7 +800,7 @@ export default function Home() {
                   Depuis 2001 a Agadez
                 </div>
                 <h1 className="mt-8 text-4xl font-semibold leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
-                  Plus de 20 ans d&apos;expertise au service des infrastructures
+                  Plus de 25 ans d&apos;expertise au service des infrastructures
                   et du developpement.
                 </h1>
                 <p className="mt-8 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">
@@ -1207,8 +1207,27 @@ export default function Home() {
                 description="Cette galerie regroupe des images prises sur plusieurs chantiers, notamment la construction de 10 villas pour la CNSS, le Centre de promotion sociale de Diffa et l'École d'excellence de Diffa."
               />
 
-              <div className="mt-10 grid gap-4 xl:grid-cols-[1.05fr_0.95fr]">
-                <div className="grid gap-4 md:grid-cols-3 xl:grid-cols-1">
+              <div className="mt-10 grid gap-4 md:grid-cols-3">
+                <div
+                  className={`rounded-[1.75rem] border p-6 md:col-span-3 ${
+                    darkMode
+                      ? "border-white/10 bg-slate-950"
+                      : "border-slate-200 bg-slate-50"
+                  }`}
+                >
+                  <p
+                    className={`leading-7 ${
+                      darkMode ? "text-slate-300" : "text-slate-600"
+                    }`}
+                  >
+                    Les photos et vidéos ci-dessous montrent plusieurs
+                    réalisations. Elles donnent une vue d&apos;ensemble de nos
+                    chantiers et ne correspondent pas chacune a un chantier
+                    distinct.
+                  </p>
+                </div>
+
+                <div className="grid gap-4 md:col-span-3 md:grid-cols-3">
                   {galleryReferences.map((reference) => (
                     <div
                       key={reference.title}
@@ -1234,48 +1253,6 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                <div
-                  className={`rounded-[1.75rem] border p-6 ${
-                    darkMode
-                      ? "border-white/10 bg-slate-950"
-                      : "border-slate-200 bg-slate-50"
-                  }`}
-                >
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-400">
-                    Archive visuelle globale
-                  </p>
-                  <h3 className="mt-3 text-xl font-semibold">
-                    Une lecture simple, surtout sur mobile
-                  </h3>
-                  <p
-                    className={`mt-3 leading-7 ${
-                      darkMode ? "text-slate-300" : "text-slate-600"
-                    }`}
-                  >
-                    Les photos et vidéos illustrent plusieurs réalisations.
-                    Elles sont regroupées ici comme une archive de terrain et ne
-                    correspondent pas chacune à un chantier distinct.
-                  </p>
-                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                    {[
-                      "Photos prises directement sur site",
-                      "Vidéos courtes plus légères à consulter",
-                      "Affichage plus lisible sur téléphone",
-                      "Navigation simple sans confusion par chantier",
-                    ].map((item) => (
-                      <div
-                        key={item}
-                        className={`rounded-2xl border px-4 py-3 text-sm ${
-                          darkMode
-                            ? "border-white/10 bg-white/5 text-slate-200"
-                            : "border-slate-200 bg-white text-slate-700"
-                        }`}
-                      >
-                        {item}
-                      </div>
-                    ))}
-                  </div>
-                </div>
               </div>
 
               <div className="mt-10">
@@ -1288,11 +1265,11 @@ export default function Home() {
                   </h3>
                 </div>
 
-                <div className="grid gap-4 sm:grid-cols-2 2xl:grid-cols-4">
+                <div className="grid grid-flow-col auto-cols-[84%] gap-4 overflow-x-auto pb-2 snap-x snap-mandatory [scrollbar-width:none] sm:auto-cols-[48%] lg:grid-flow-row lg:auto-cols-auto lg:grid-cols-2 2xl:grid-cols-4 [&::-webkit-scrollbar]:hidden">
                   {chantierVideos.map((video) => (
                     <article
                       key={video.src}
-                      className={`overflow-hidden rounded-[1.75rem] border ${
+                      className={`snap-start overflow-hidden rounded-[1.75rem] border ${
                         darkMode
                           ? "border-white/10 bg-slate-950"
                           : "border-slate-200 bg-slate-50"
@@ -1338,11 +1315,11 @@ export default function Home() {
                   </h3>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4">
+                <div className="grid grid-flow-col auto-cols-[78%] gap-4 overflow-x-auto pb-2 snap-x snap-mandatory [scrollbar-width:none] sm:auto-cols-[46%] lg:grid-flow-row lg:auto-cols-auto lg:grid-cols-3 [&::-webkit-scrollbar]:hidden">
                   {chantierPhotos.map((photo) => (
                     <article
                       key={photo.src}
-                      className={`overflow-hidden rounded-[1.75rem] border ${
+                      className={`snap-start overflow-hidden rounded-[1.75rem] border ${
                         darkMode
                           ? "border-white/10 bg-slate-950"
                           : "border-slate-200 bg-slate-50"
@@ -1353,7 +1330,7 @@ export default function Home() {
                           src={photo.src}
                           alt={photo.alt}
                           fill
-                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                          sizes="(max-width: 640px) 78vw, (max-width: 1024px) 46vw, 33vw"
                           className="object-cover"
                         />
                       </div>
