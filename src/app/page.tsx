@@ -59,6 +59,17 @@ type Testimonial = {
   role: string;
 };
 
+type GalleryPhoto = {
+  src: string;
+  alt: string;
+};
+
+type GalleryVideo = {
+  src: string;
+  poster: string;
+  title: string;
+};
+
 const navigation = [
   { label: "Accueil", href: "#accueil" },
   { label: "Entreprise", href: "#entreprise" },
@@ -66,6 +77,20 @@ const navigation = [
   { label: "Projets", href: "#projets" },
   { label: "Contact", href: "#contact" },
 ];
+
+const primaryPhone = {
+  label: "WhatsApp / Standard",
+  display: "+227 97 56 46 16",
+  href: "tel:+22797564616",
+};
+
+const secondaryPhone = {
+  label: "Ligne directe",
+  display: "+227 90 02 96 91",
+  href: "tel:+22790029691",
+};
+
+const whatsappHref = "https://wa.me/22797564616";
 
 const services: Service[] = [
   {
@@ -297,6 +322,52 @@ const stats = [
   { value: 200, suffix: "+", label: "collaborateurs mobilisables" },
 ];
 
+const chantierPhotos: GalleryPhoto[] = [
+  "WhatsApp Image 2026-05-16 at 18.23.14 (1).jpeg",
+  "WhatsApp Image 2026-05-16 at 18.23.14 (2).jpeg",
+  "WhatsApp Image 2026-05-16 at 18.23.14.jpeg",
+  "WhatsApp Image 2026-05-16 at 18.23.15 (1).jpeg",
+  "WhatsApp Image 2026-05-16 at 18.23.15 (2).jpeg",
+  "WhatsApp Image 2026-05-16 at 18.23.15 (3).jpeg",
+  "WhatsApp Image 2026-05-16 at 18.23.15.jpeg",
+  "WhatsApp Image 2026-05-16 at 18.23.16.jpeg",
+  "WhatsApp Image 2026-05-16 at 18.23.19.jpeg",
+  "WhatsApp Image 2026-05-16 at 18.23.22 (1).jpeg",
+  "WhatsApp Image 2026-05-16 at 18.23.22.jpeg",
+  "WhatsApp Image 2026-05-16 at 18.23.23 (1).jpeg",
+  "WhatsApp Image 2026-05-16 at 18.23.23.jpeg",
+  "WhatsApp Image 2026-05-16 at 18.23.29 (1).jpeg",
+  "WhatsApp Image 2026-05-16 at 18.23.29.jpeg",
+  "WhatsApp Image 2026-05-16 at 18.23.36 (1).jpeg",
+  "WhatsApp Image 2026-05-16 at 18.23.36.jpeg",
+].map((fileName, index) => ({
+  src: encodeURI(`/images/Chantier/${fileName}`),
+  alt: `Photo de chantier ENTREPRISE ESMA ${index + 1}`,
+}));
+
+const chantierVideos: GalleryVideo[] = [
+  {
+    src: encodeURI("/videos/WhatsApp Video 2026-05-16 at 18.23.19.mp4"),
+    poster: chantierPhotos[8]?.src ?? chantierPhotos[0].src,
+    title: "Suivi terrain",
+  },
+  {
+    src: encodeURI("/videos/WhatsApp Video 2026-05-16 at 18.23.22.mp4"),
+    poster: chantierPhotos[9]?.src ?? chantierPhotos[1].src,
+    title: "Avancement des travaux",
+  },
+  {
+    src: encodeURI("/videos/WhatsApp Video 2026-05-16 at 18.23.29.mp4"),
+    poster: chantierPhotos[14]?.src ?? chantierPhotos[2].src,
+    title: "Exécution sur site",
+  },
+  {
+    src: encodeURI("/videos/WhatsApp Video 2026-05-16 at 18.23.36.mp4"),
+    poster: chantierPhotos[16]?.src ?? chantierPhotos[3].src,
+    title: "Progression chantier",
+  },
+];
+
 const sectionVariant = {
   hidden: { opacity: 0, y: 28 },
   visible: {
@@ -496,7 +567,7 @@ export default function Home() {
               name: "ENTREPRISE ESMA",
               address: "BP 128 / AZ - Agadez",
               areaServed: "Niger",
-              telephone: ["+22797564616"],
+              telephone: ["+22797564616", "+22790029691"],
               foundingDate: "2001-05-16",
               keywords: [
                 "entreprise BTP Niger",
@@ -680,7 +751,7 @@ export default function Home() {
                       <span className="text-sm font-medium">{darkMode ? "Clair" : "Sombre"}</span>
                     </button>
                     <a
-                      href="tel:+22797564616"
+                      href={secondaryPhone.href}
                       className="flex flex-1 items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 py-4 text-white"
                     >
                       <Phone size={20} />
@@ -688,7 +759,7 @@ export default function Home() {
                     </a>
                   </div>
                   <a
-                    href="https://wa.me/22797564616"
+                    href={whatsappHref}
                     target="_blank"
                     rel="noreferrer"
                     className="flex items-center justify-center gap-3 rounded-2xl bg-orange-400 py-5 text-center font-bold text-slate-950 shadow-lg shadow-orange-400/20 active:scale-[0.98]"
@@ -1123,6 +1194,171 @@ export default function Home() {
           </section>
 
           <section
+            id="galerie"
+            className={darkMode ? "bg-slate-900 py-16 lg:py-24" : "bg-white py-16 lg:py-24"}
+          >
+            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+              <SectionHeading
+                eyebrow="Galerie chantier"
+                title="Diffa et d'autres localités, en images et en vidéo."
+                description="Une sélection de captations terrain pour présenter plus concrètement nos interventions, l'avancement des travaux et la réalité des chantiers menés par ENTREPRISE ESMA."
+              />
+
+              <div className="mt-12 grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
+                <div
+                  className={`overflow-hidden rounded-[2rem] border ${
+                    darkMode
+                      ? "border-white/10 bg-slate-950"
+                      : "border-slate-200 bg-slate-50"
+                  }`}
+                >
+                  <div className="grid gap-6 p-6 lg:grid-cols-[1.15fr_0.85fr] lg:p-8">
+                    <div className="space-y-4">
+                      <div className="inline-flex rounded-full border border-orange-400/30 bg-orange-400/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-orange-300">
+                        Vidéo mise en avant
+                      </div>
+                      <h3 className="text-2xl font-semibold">
+                        Chantiers en cours et ouvrages livrés
+                      </h3>
+                      <p
+                        className={darkMode ? "text-slate-300" : "text-slate-600"}
+                      >
+                        Cette galerie valorise le terrain avec une présentation
+                        plus vivante des équipes, des ouvrages et de la
+                        progression des travaux.
+                      </p>
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        {[
+                          "Photos prises sur site",
+                          "Vidéos fluides et légères",
+                          "Présentation propre sur mobile",
+                          "Mise en avant de Diffa et d'autres zones",
+                        ].map((item) => (
+                          <div
+                            key={item}
+                            className={`rounded-2xl border px-4 py-3 text-sm ${
+                              darkMode
+                                ? "border-white/10 bg-white/5 text-slate-200"
+                                : "border-slate-200 bg-white text-slate-700"
+                            }`}
+                          >
+                            {item}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="overflow-hidden rounded-[1.75rem]">
+                      <video
+                        src={chantierVideos[0].src}
+                        poster={chantierVideos[0].poster}
+                        controls
+                        muted
+                        playsInline
+                        preload="metadata"
+                        className="h-full min-h-[320px] w-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
+                  {chantierVideos.slice(1).map((video) => (
+                    <div
+                      key={video.src}
+                      className={`overflow-hidden rounded-[1.75rem] border ${
+                        darkMode
+                          ? "border-white/10 bg-slate-950"
+                          : "border-slate-200 bg-slate-50"
+                      }`}
+                    >
+                      <video
+                        src={video.src}
+                        poster={video.poster}
+                        controls
+                        muted
+                        playsInline
+                        preload="metadata"
+                        className="h-56 w-full object-cover"
+                      />
+                      <div className="p-4">
+                        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-400">
+                          {video.title}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-6 flex gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                {chantierPhotos.slice(0, 6).map((photo, index) => (
+                  <div
+                    key={photo.src}
+                    className={`min-w-[260px] shrink-0 rounded-[1.75rem] border p-3 ${
+                      darkMode
+                        ? "border-white/10 bg-slate-950"
+                        : "border-slate-200 bg-slate-50"
+                    }`}
+                  >
+                    <div className="relative h-56 overflow-hidden rounded-[1.2rem]">
+                      <Image
+                        src={photo.src}
+                        alt={photo.alt}
+                        fill
+                        sizes="260px"
+                        className="object-cover"
+                      />
+                    </div>
+                    <p
+                      className={`mt-3 text-sm ${
+                        darkMode ? "text-slate-300" : "text-slate-600"
+                      }`}
+                    >
+                      Vue chantier {index + 1}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                {chantierPhotos.slice(6).map((photo, index) => (
+                  <div
+                    key={photo.src}
+                    className={`overflow-hidden rounded-[1.75rem] border ${
+                      darkMode
+                        ? "border-white/10 bg-slate-950"
+                        : "border-slate-200 bg-slate-50"
+                    }`}
+                  >
+                    <div className="relative h-64">
+                      <Image
+                        src={photo.src}
+                        alt={photo.alt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <p className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-400">
+                        Chantier ESMA
+                      </p>
+                      <p
+                        className={`mt-2 text-sm ${
+                          darkMode ? "text-slate-300" : "text-slate-600"
+                        }`}
+                      >
+                        Intervention terrain {index + 7}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section
             className={darkMode ? "bg-slate-950 py-16 lg:py-24" : "bg-slate-50 py-16 lg:py-24"}
           >
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -1184,7 +1420,10 @@ export default function Home() {
                     {
                       icon: Phone,
                       title: "Téléphone / WhatsApp",
-                      lines: ["+227 97 56 46 16"],
+                      lines: [
+                        `${primaryPhone.label} : ${primaryPhone.display}`,
+                        `${secondaryPhone.label} : ${secondaryPhone.display}`,
+                      ],
                     },
                     {
                       icon: MapPin,
@@ -1194,7 +1433,7 @@ export default function Home() {
                     {
                       icon: BriefcaseBusiness,
                       title: "Informations légales",
-                      lines: ["RC : NI-AGA-2007-B-136", "NIF : 1629/S"],
+                      lines: ["RC : NI-AGA-2007-B-136", "NIF : 1629/R"],
                     },
                   ].map((item) => {
                     const Icon = item.icon;
@@ -1232,7 +1471,7 @@ export default function Home() {
 
                 <div className="flex flex-col gap-4 sm:flex-row">
                   <a
-                    href="https://wa.me/22797564616"
+                    href={whatsappHref}
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center justify-center gap-2 rounded-full bg-orange-400 px-6 py-4 font-semibold text-slate-950 transition hover:bg-orange-300"
@@ -1338,7 +1577,8 @@ export default function Home() {
                     {submitted ? (
                       <p className="text-sm text-emerald-400">
                         Merci. Votre demande a bien ete enregistree. Vous pouvez
-                        egalement nous joindre au +227 97 56 46 16.
+                        egalement nous joindre au {primaryPhone.display} ou au{" "}
+                        {secondaryPhone.display}.
                       </p>
                     ) : null}
                   </form>
@@ -1434,7 +1674,8 @@ export default function Home() {
                 }`}
               >
                 <p>BP 128 / AZ - Agadez</p>
-                <p>+227 97 56 46 16</p>
+                <p>{primaryPhone.display}</p>
+                <p>{secondaryPhone.display}</p>
                 <p>o.alkassoum7456@gmail.com</p>
                 <div className="flex gap-3 pt-2">
                   {["LinkedIn", "Facebook", "WhatsApp"].map((network) => (
@@ -1489,14 +1730,14 @@ export default function Home() {
         {/* Barre de contact rapide mobile */}
         <div className="fixed inset-x-0 bottom-0 z-[50] flex items-center justify-center gap-4 border-t border-white/10 bg-slate-900/80 p-4 backdrop-blur-lg lg:hidden">
           <a
-            href="tel:+22797564616"
+            href={secondaryPhone.href}
             className="flex flex-1 items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 py-4 font-bold text-white active:scale-95"
           >
             <Phone size={20} />
             Appeler
           </a>
           <a
-            href="https://wa.me/22797564616"
+            href={whatsappHref}
             target="_blank"
             rel="noreferrer"
             className="flex flex-[1.5] items-center justify-center gap-2 rounded-2xl bg-emerald-500 py-4 font-bold text-white shadow-lg shadow-emerald-500/20 active:scale-95"
@@ -1508,7 +1749,7 @@ export default function Home() {
 
         {/* WhatsApp FAB Desktop */}
         <a
-          href="https://wa.me/22797564616"
+          href={whatsappHref}
           target="_blank"
           rel="noreferrer"
           className="fixed bottom-8 left-8 z-40 hidden items-center gap-2 rounded-full bg-emerald-500 px-6 py-4 font-bold text-white shadow-2xl shadow-emerald-500/30 transition hover:scale-105 active:scale-95 lg:flex"
