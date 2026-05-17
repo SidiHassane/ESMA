@@ -31,7 +31,8 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "ENTREPRISE ESMA" }],
   icons: {
-    icon: "/favicon.ico",
+    icon: "/logo.png",
+    apple: "/logo.png",
   },
   openGraph: {
     title: "ENTREPRISE ESMA",
