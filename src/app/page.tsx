@@ -28,7 +28,6 @@ import {
   Phone,
   ShieldCheck,
   Sun,
-  TrendingUp,
   Users,
   Wrench,
   X,
@@ -75,6 +74,7 @@ const navigation = [
   { label: "Entreprise", href: "#entreprise" },
   { label: "Services", href: "#services" },
   { label: "Projets", href: "#projets" },
+  { label: "Galerie", href: "#galerie" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -155,76 +155,54 @@ const services: Service[] = [
     imageAlt: "Excavatrice lourde en activité sur un chantier de terrassement",
     imagePosition: "center 55%",
   },
+  {
+    title: "Énergie renouvelable",
+    description:
+      "Interventions dans le solaire et les équipements associés, avec un agrément obtenu récemment pour accompagner les besoins en énergie renouvelable.",
+    icon: Sun,
+    image: "/images/hero.jpg",
+    imageAlt:
+      "Ouvrage technique illustrant une activité liée à l'énergie renouvelable",
+    imagePosition: "center 56%",
+  },
 ];
 
 const projects: Project[] = [
   {
-    title: "Construction d'axe routier régional",
-    category: "Travaux publics",
+    title: "Construction de 10 villas pour la CNSS",
+    category: "Bâtiment résidentiel",
     description:
-      "Réalisation d'un tronçon structurant avec terrassement, revêtement, ouvrages de franchissement et signalisation.",
-    image: "/images/roads.jpg",
-    imageAlt: "Travaux routiers avec équipes et équipements de chantier",
-    imagePosition: "center 52%",
-    location: "Région d'Agadez",
+      "Programme de construction mené pour le compte de la CNSS, avec plusieurs vues de terrain visibles dans la galerie photo et vidéo.",
+    image: encodeURI(
+      "/images/Chantier/WhatsApp Image 2026-05-16 at 18.23.14 (1).jpeg",
+    ),
+    imageAlt: "Vue de la construction des 10 villas réalisées pour la CNSS",
+    imagePosition: "center",
+    location: "Diffa",
   },
   {
-    title: "Réseau hydraulique multi-sites",
-    category: "Hydraulique",
+    title: "Centre de promotion sociale de Diffa",
+    category: "Équipement social",
     description:
-      "Extension de réseau, pose de conduites et mise en place de solutions de distribution d'eau pour plusieurs zones.",
-    image:
-      "https://images.pexels.com/photos/20772237/pexels-photo-20772237.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    imageAlt: "Conduite d'eau technique dans un tunnel hydraulique",
-    location: "Nord du Niger",
+      "Réalisation d'un équipement à vocation sociale avec suivi de chantier, finitions extérieures et documentation visuelle sur site.",
+    image: encodeURI(
+      "/images/Chantier/WhatsApp Image 2026-05-16 at 18.23.22.jpeg",
+    ),
+    imageAlt: "Centre de promotion sociale de Diffa en cours de réalisation",
+    imagePosition: "center",
+    location: "Diffa",
   },
   {
-    title: "Bâtiment administratif et technique",
-    category: "Bâtiment",
+    title: "École d'excellence de Diffa",
+    category: "Éducation",
     description:
-      "Conception-construction d'un ensemble fonctionnel intégrant bureaux, locaux techniques et finitions premium.",
-    image: "/images/building.jpg",
-    imageAlt: "Façade d'un bâtiment moderne à usage administratif",
-    location: "Agadez",
-  },
-  {
-    title: "Programme d'assainissement urbain",
-    category: "Assainissement",
-    description:
-      "Création de réseaux d'évacuation, ouvrages de drainage et amélioration de la résilience urbaine face aux eaux pluviales.",
-    image: "/images/hero.jpg",
-    imageAlt: "Travaux de mise en oeuvre d'un ouvrage de canalisation",
-    imagePosition: "center 58%",
-    location: "Centre-ville",
-  },
-  {
-    title: "Maintenance industrielle lourde",
-    category: "Industrie",
-    description:
-      "Interventions de maintenance et d'optimisation sur équipements industriels avec exigences fortes de disponibilité.",
-    image: "/images/industry.jpg",
-    imageAlt: "Grand hall industriel pour activités de maintenance lourde",
-    location: "Site industriel",
-  },
-  {
-    title: "Fourniture d'équipements spécialisés",
-    category: "Import / Export",
-    description:
-      "Pilotage logistique, sourcing international et livraison de matériels techniques adaptés aux chantiers.",
-    image: "/images/logistics.jpg",
-    imageAlt: "Entrepôt logistique de stockage d'équipements spécialisés",
-    location: "Niger",
-  },
-  {
-    title: "Location de matériel de chantier",
-    category: "Services",
-    description:
-      "Location de pelleteuses, bulldozers et camions bennes pour des projets de construction à Agadez.",
-    image:
-      "https://images.pexels.com/photos/15370211/pexels-photo-15370211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    imageAlt: "Engin de chantier en location sur une zone de terrassement",
-    imagePosition: "center 55%",
-    location: "Agadez",
+      "Projet éducatif structurant documenté par plusieurs prises de vue terrain, illustrant l'avancement des ouvrages et des aménagements.",
+    image: encodeURI(
+      "/images/Chantier/WhatsApp Image 2026-05-16 at 18.23.23.jpeg",
+    ),
+    imageAlt: "Vue de l'École d'excellence de Diffa sur chantier",
+    imagePosition: "center",
+    location: "Diffa",
   },
 ];
 
@@ -260,10 +238,10 @@ const differentiators = [
     icon: ShieldCheck,
   },
   {
-    title: "Solutions durables",
+    title: "Agrément énergie renouvelable",
     description:
-      "Une approche responsable favorisant la robustesse des ouvrages et la pérennité des investissements.",
-    icon: TrendingUp,
+      "Un agrément obtenu récemment qui permet à ENTREPRISE ESMA d'élargir ses interventions aux solutions en énergie renouvelable.",
+    icon: Sun,
   },
 ];
 
@@ -290,7 +268,7 @@ const milestones = [
     year: "Aujourd'hui",
     title: "Référence régionale",
     description:
-      "Plus de 20 ans d'expérience et une capacité confirmée à accompagner les grands projets techniques.",
+      "Plus de 25 ans d'expérience, une capacité confirmée sur les grands projets techniques et un agrément récent dans l'énergie renouvelable.",
   },
 ];
 
@@ -322,6 +300,27 @@ const stats = [
   { value: 200, suffix: "+", label: "collaborateurs mobilisables" },
 ];
 
+const galleryReferences = [
+  {
+    title: "Construction de 10 villas pour la CNSS",
+    location: "Diffa",
+    description:
+      "Programme résidentiel mené pour le compte de la CNSS, documenté par plusieurs séquences photo et vidéo.",
+  },
+  {
+    title: "Centre de promotion sociale",
+    location: "Diffa",
+    description:
+      "Réalisation d'un équipement à vocation sociale avec vues de chantier et avancement des ouvrages.",
+  },
+  {
+    title: "École d'excellence",
+    location: "Diffa",
+    description:
+      "Captations de terrain autour d'un projet éducatif structurant, intégrées à la galerie globale du site.",
+  },
+];
+
 const chantierPhotos: GalleryPhoto[] = [
   "WhatsApp Image 2026-05-16 at 18.23.14 (1).jpeg",
   "WhatsApp Image 2026-05-16 at 18.23.14 (2).jpeg",
@@ -342,7 +341,7 @@ const chantierPhotos: GalleryPhoto[] = [
   "WhatsApp Image 2026-05-16 at 18.23.36.jpeg",
 ].map((fileName, index) => ({
   src: encodeURI(`/images/Chantier/${fileName}`),
-  alt: `Photo de chantier ENTREPRISE ESMA ${index + 1}`,
+  alt: `Archive photo de terrain ENTREPRISE ESMA ${index + 1}`,
 }));
 
 const chantierVideos: GalleryVideo[] = [
@@ -575,6 +574,7 @@ export default function Home() {
                 "hydraulique Niger",
                 "entreprise construction Niger",
                 "assainissement Agadez",
+                "énergie renouvelable Niger",
               ],
             }),
           }}
@@ -607,7 +607,7 @@ export default function Home() {
                     darkMode ? "text-slate-400" : "text-slate-500"
                   }`}
                 >
-                  BTP, hydraulique et services industriels
+                  BTP, hydraulique, industrie et énergie renouvelable
                 </div>
               </div>
             </a>
@@ -807,7 +807,9 @@ export default function Home() {
                   ENTREPRISE ESMA accompagne les projets publics, industriels et
                   techniques avec rigueur, experience et une execution orientee
                   resultat dans les secteurs du BTP, de l&apos;hydraulique et de
-                  l&apos;assainissement.
+                  l&apos;assainissement, et intervient desormais dans
+                  l&apos;energie renouvelable grace a un agrement obtenu
+                  recemment.
                 </p>
                 <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                   <a
@@ -825,11 +827,12 @@ export default function Home() {
                     <Phone size={18} />
                   </a>
                 </div>
-                <div className="mt-12 grid gap-4 sm:grid-cols-3">
+                <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                   {[
                     "Travaux publics",
                     "Hydraulique",
                     "Services industriels",
+                    "Énergie renouvelable",
                   ].map((item) => (
                     <div
                       key={item}
@@ -893,7 +896,7 @@ export default function Home() {
                 <SectionHeading
                   eyebrow="L'entreprise"
                   title="Une trajectoire bâtie sur la confiance, la fiabilité et l'engagement."
-                  description="Fondée le 16 mai 2001 à Agadez, ENTREPRISE ESMA s'est imposée comme un acteur polyvalent des travaux publics, du bâtiment, de l'hydraulique, de l'assainissement et des services industriels au Niger."
+                  description="Fondée le 16 mai 2001 à Agadez, ENTREPRISE ESMA s'est imposée comme un acteur polyvalent des travaux publics, du bâtiment, de l'hydraulique, de l'assainissement, des services industriels et, plus récemment, de l'énergie renouvelable au Niger."
                 />
 
                 <div
@@ -1057,7 +1060,7 @@ export default function Home() {
               <SectionHeading
                 eyebrow="Réalisations"
                 title="Des projets qui illustrent notre capacité à livrer avec exigence."
-                description="Une sélection de références fictives réalistes reflétant les domaines d'intervention d'ENTREPRISE ESMA dans les infrastructures, les réseaux et les projets industriels."
+                description="Quelques références récentes présentées de manière fidèle, à partir de chantiers réellement suivis par ENTREPRISE ESMA à Diffa."
               />
 
               <div className="mt-10 flex flex-wrap gap-3">
@@ -1199,72 +1202,95 @@ export default function Home() {
           >
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <SectionHeading
-                eyebrow="Galerie chantier"
-                title="Diffa et d'autres localités, en images et en vidéo."
-                description="Une sélection de captations terrain pour présenter plus concrètement nos interventions, l'avancement des travaux et la réalité des chantiers menés par ENTREPRISE ESMA."
+                eyebrow="Galerie"
+                title="Photos et vidéos de terrain."
+                description="Cette galerie regroupe des images prises sur plusieurs chantiers, notamment la construction de 10 villas pour la CNSS, le Centre de promotion sociale de Diffa et l'École d'excellence de Diffa."
               />
 
-              <div className="mt-12 grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
+              <div className="mt-10 grid gap-4 xl:grid-cols-[1.05fr_0.95fr]">
+                <div className="grid gap-4 md:grid-cols-3 xl:grid-cols-1">
+                  {galleryReferences.map((reference) => (
+                    <div
+                      key={reference.title}
+                      className={`rounded-[1.75rem] border p-6 ${
+                        darkMode
+                          ? "border-white/10 bg-slate-950"
+                          : "border-slate-200 bg-slate-50"
+                      }`}
+                    >
+                      <p className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-400">
+                        {reference.location}
+                      </p>
+                      <h3 className="mt-3 text-xl font-semibold">
+                        {reference.title}
+                      </h3>
+                      <p
+                        className={`mt-3 leading-7 ${
+                          darkMode ? "text-slate-300" : "text-slate-600"
+                        }`}
+                      >
+                        {reference.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
                 <div
-                  className={`overflow-hidden rounded-[2rem] border ${
+                  className={`rounded-[1.75rem] border p-6 ${
                     darkMode
                       ? "border-white/10 bg-slate-950"
                       : "border-slate-200 bg-slate-50"
                   }`}
                 >
-                  <div className="grid gap-6 p-6 lg:grid-cols-[1.15fr_0.85fr] lg:p-8">
-                    <div className="space-y-4">
-                      <div className="inline-flex rounded-full border border-orange-400/30 bg-orange-400/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-orange-300">
-                        Vidéo mise en avant
-                      </div>
-                      <h3 className="text-2xl font-semibold">
-                        Chantiers en cours et ouvrages livrés
-                      </h3>
-                      <p
-                        className={darkMode ? "text-slate-300" : "text-slate-600"}
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-400">
+                    Archive visuelle globale
+                  </p>
+                  <h3 className="mt-3 text-xl font-semibold">
+                    Une lecture simple, surtout sur mobile
+                  </h3>
+                  <p
+                    className={`mt-3 leading-7 ${
+                      darkMode ? "text-slate-300" : "text-slate-600"
+                    }`}
+                  >
+                    Les photos et vidéos illustrent plusieurs réalisations.
+                    Elles sont regroupées ici comme une archive de terrain et ne
+                    correspondent pas chacune à un chantier distinct.
+                  </p>
+                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                    {[
+                      "Photos prises directement sur site",
+                      "Vidéos courtes plus légères à consulter",
+                      "Affichage plus lisible sur téléphone",
+                      "Navigation simple sans confusion par chantier",
+                    ].map((item) => (
+                      <div
+                        key={item}
+                        className={`rounded-2xl border px-4 py-3 text-sm ${
+                          darkMode
+                            ? "border-white/10 bg-white/5 text-slate-200"
+                            : "border-slate-200 bg-white text-slate-700"
+                        }`}
                       >
-                        Cette galerie valorise le terrain avec une présentation
-                        plus vivante des équipes, des ouvrages et de la
-                        progression des travaux.
-                      </p>
-                      <div className="grid gap-3 sm:grid-cols-2">
-                        {[
-                          "Photos prises sur site",
-                          "Vidéos fluides et légères",
-                          "Présentation propre sur mobile",
-                          "Mise en avant de Diffa et d'autres zones",
-                        ].map((item) => (
-                          <div
-                            key={item}
-                            className={`rounded-2xl border px-4 py-3 text-sm ${
-                              darkMode
-                                ? "border-white/10 bg-white/5 text-slate-200"
-                                : "border-slate-200 bg-white text-slate-700"
-                            }`}
-                          >
-                            {item}
-                          </div>
-                        ))}
+                        {item}
                       </div>
-                    </div>
-
-                    <div className="overflow-hidden rounded-[1.75rem]">
-                      <video
-                        src={chantierVideos[0].src}
-                        poster={chantierVideos[0].poster}
-                        controls
-                        muted
-                        playsInline
-                        preload="metadata"
-                        className="h-full min-h-[320px] w-full object-cover"
-                      />
-                    </div>
+                    ))}
                   </div>
                 </div>
+              </div>
 
-                <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
-                  {chantierVideos.slice(1).map((video) => (
-                    <div
+              <div className="mt-10">
+                <div className="mb-4">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-400">
+                    Vidéos terrain
+                  </p>
+                  <h3 className="mt-2 text-2xl font-semibold">
+                    Séquences chantier
+                  </h3>
+                </div>
+
+                <div className="grid gap-4 sm:grid-cols-2 2xl:grid-cols-4">
+                  {chantierVideos.map((video) => (
+                    <article
                       key={video.src}
                       className={`overflow-hidden rounded-[1.75rem] border ${
                         darkMode
@@ -1278,82 +1304,74 @@ export default function Home() {
                         controls
                         muted
                         playsInline
-                        preload="metadata"
-                        className="h-56 w-full object-cover"
-                      />
+                        preload="none"
+                        aria-label={video.title}
+                        className="aspect-[4/5] w-full bg-black object-cover"
+                      >
+                        Votre navigateur ne prend pas en charge la lecture
+                        vidéo.
+                      </video>
                       <div className="p-4">
                         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-400">
                           {video.title}
                         </p>
+                        <p
+                          className={`mt-2 text-sm ${
+                            darkMode ? "text-slate-300" : "text-slate-600"
+                          }`}
+                        >
+                          Archive vidéo multi-projets
+                        </p>
                       </div>
-                    </div>
+                    </article>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-6 flex gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                {chantierPhotos.slice(0, 6).map((photo, index) => (
-                  <div
-                    key={photo.src}
-                    className={`min-w-[260px] shrink-0 rounded-[1.75rem] border p-3 ${
-                      darkMode
-                        ? "border-white/10 bg-slate-950"
-                        : "border-slate-200 bg-slate-50"
-                    }`}
-                  >
-                    <div className="relative h-56 overflow-hidden rounded-[1.2rem]">
-                      <Image
-                        src={photo.src}
-                        alt={photo.alt}
-                        fill
-                        sizes="260px"
-                        className="object-cover"
-                      />
-                    </div>
-                    <p
-                      className={`mt-3 text-sm ${
-                        darkMode ? "text-slate-300" : "text-slate-600"
+              <div className="mt-10">
+                <div className="mb-4">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-400">
+                    Photos terrain
+                  </p>
+                  <h3 className="mt-2 text-2xl font-semibold">
+                    Documentation visuelle
+                  </h3>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4">
+                  {chantierPhotos.map((photo) => (
+                    <article
+                      key={photo.src}
+                      className={`overflow-hidden rounded-[1.75rem] border ${
+                        darkMode
+                          ? "border-white/10 bg-slate-950"
+                          : "border-slate-200 bg-slate-50"
                       }`}
                     >
-                      Vue chantier {index + 1}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-                {chantierPhotos.slice(6).map((photo, index) => (
-                  <div
-                    key={photo.src}
-                    className={`overflow-hidden rounded-[1.75rem] border ${
-                      darkMode
-                        ? "border-white/10 bg-slate-950"
-                        : "border-slate-200 bg-slate-50"
-                    }`}
-                  >
-                    <div className="relative h-64">
-                      <Image
-                        src={photo.src}
-                        alt={photo.alt}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="p-4">
-                      <p className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-400">
-                        Chantier ESMA
-                      </p>
-                      <p
-                        className={`mt-2 text-sm ${
-                          darkMode ? "text-slate-300" : "text-slate-600"
-                        }`}
-                      >
-                        Intervention terrain {index + 7}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+                      <div className="relative aspect-[4/5]">
+                        <Image
+                          src={photo.src}
+                          alt={photo.alt}
+                          fill
+                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="p-4">
+                        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-400">
+                          Galerie chantier
+                        </p>
+                        <p
+                          className={`mt-2 text-sm ${
+                            darkMode ? "text-slate-300" : "text-slate-600"
+                          }`}
+                        >
+                          Archive photo multi-projets
+                        </p>
+                      </div>
+                    </article>
+                  ))}
+                </div>
               </div>
             </div>
           </section>
@@ -1412,14 +1430,14 @@ export default function Home() {
                 <SectionHeading
                   eyebrow="Contact"
                   title="Échangeons sur votre prochain projet."
-                  description="Vous recherchez un partenaire fiable pour un chantier, une infrastructure, un besoin hydraulique ou une prestation industrielle ? Notre équipe est disponible pour étudier votre demande."
+                  description="Vous recherchez un partenaire fiable pour un chantier, une infrastructure, un besoin hydraulique, une prestation industrielle ou un projet en énergie renouvelable ? Notre équipe est disponible pour étudier votre demande."
                 />
 
                 <div className="grid gap-4">
                   {[
                     {
                       icon: Phone,
-                      title: "Téléphone / WhatsApp",
+                      title: "Téléphones et WhatsApp",
                       lines: [
                         `${primaryPhone.label} : ${primaryPhone.display}`,
                         `${secondaryPhone.label} : ${secondaryPhone.display}`,
@@ -1630,7 +1648,7 @@ export default function Home() {
                       darkMode ? "text-slate-400" : "text-slate-500"
                     }`}
                   >
-                    Travaux publics, bâtiment et infrastructures
+                    Travaux publics, bâtiment, industrie et énergie renouvelable
                   </p>
                 </div>
               </div>
@@ -1641,7 +1659,8 @@ export default function Home() {
               >
                 ENTREPRISE ESMA met son experience, son exigence de qualite et
                 sa capacite d&apos;execution au service du developpement des
-                infrastructures et des investissements au Niger.
+                infrastructures, des investissements et des nouveaux besoins en
+                energie renouvelable au Niger.
               </p>
             </div>
 
